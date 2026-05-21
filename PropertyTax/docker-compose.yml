@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: propertytax-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: propertytax_dev
+      MYSQL_USER: propertytax
+      MYSQL_PASSWORD: propertytax
+      MYSQL_ROOT_PASSWORD: propertytax_root
+    ports:
+      - "3306:3306"
+    volumes:
+      - propertytax_db:/var/lib/mysql
+
+volumes:
+  propertytax_db:
